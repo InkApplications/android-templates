@@ -18,11 +18,11 @@ subprojects {
     jcenter()
   }
 
-  version = ${versionString}
+  version = "${versionString}"
 }
 
 ext {
-  minSdkVersion = "${minSdkVersion}"
+  minSdkVersion = ${minSdkVersion}
   compileSdkVersion = 21
   buildToolsVersion = '21.1.0'
 }

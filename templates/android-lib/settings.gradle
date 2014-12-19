@@ -1,2 +1,2 @@
-include ':library'
-rootProject.name = 'android-lib'
+include ':${libraryName}'
+rootProject.name = '${libraryName}'
