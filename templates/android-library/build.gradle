@@ -1,0 +1,34 @@
+apply from: 'gradle/credentials.gradle'
+
+subprojects {
+  buildscript {
+    repositories {
+      jcenter()
+    }
+    dependencies {
+      classpath 'com.android.tools.build:gradle:1.0.0'
+      classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:0.6'
+      classpath 'org.jfrog.buildinfo:build-info-extractor-gradle:3.0.1'
+      classpath 'nl.javadude.gradle.plugins:license-gradle-plugin:0.11.0'
+      classpath 'com.netflix.nebula:gradle-extra-configurations-plugin:1.12.3'
+    }
+  }
+
+  repositories {
+    jcenter()
+  }
+
+  version = "$version${project.hasProperty('release') ? '' : '-SNAPSHOT'}"
+}
+
+ext {
+  minSdkVersion = 7
+  compileSdkVersion = 21
+  buildToolsVersion = '21.1.0'
+}
+
+buildscript {
+  repositories {
+    jcenter()
+  }
+}
