@@ -1,4 +1,5 @@
 import uk.co.cacoethes.util.NameType
+import org.apache.commons.io.FileUtils
 
 def props = [:]
 
@@ -6,6 +7,10 @@ def props = [:]
 
 def libraryName = ask("Define what this library will be called [android-lib]: ", "android-lib", "name")
 props.libraryName = transformText(libraryName, from: NameType.CAMEL_CASE, to: NameType.HYPHENATED)
+
+// Move the library directory
+def destFile = new File(projectDir, props.libraryName);
+FileUtils.moveDirectory(new File(projectDir, "library"), destFile)
 
 processTemplates "settings.gradle", props
 
